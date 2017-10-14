@@ -25,7 +25,7 @@ class User(db.Model):
     uuid = db.Column(db.String(255), unique=True)  # 唯一标识符
     userlogs = db.relationship('Userlog', backref='user')  # 会员日志外键关系关联
     comments = db.relationship('Comment', backref='user')  # 评论外键关系关联
-    moviecols = db.relationship('Moviecol', backref='user') # 电影收藏外键关系关联
+    moviecols = db.relationship('Moviecol', backref='user')  # 电影收藏外键关系关联
 
     def __repr__(self):
         return '<User %r>' % self.name  # 会员登录日志
@@ -92,7 +92,7 @@ class Preview(db.Model):
 
 # 评论
 class Comment(db.Model):
-    __tablename__ = 'Comment'
+    __tablename__ = 'comment'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))  # 所属用户
@@ -104,8 +104,8 @@ class Comment(db.Model):
 
 
 # 收藏
-class Moviecol(db):
-    __tablename__ = 'Comment'
+class Moviecol(db.Model):
+    __tablename__ = 'moviecol'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))  # 所属用户
     movie_id = db.Column(db.Integer, db.ForeignKey('movie.id'))  # 所属电影
@@ -113,3 +113,27 @@ class Moviecol(db):
 
     def __repr__(self):
         return '<Moviecol %r>' % self.id
+
+
+# 权限数据模型
+class Auth(db.Model):
+    __tablename__ = 'auth'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), unique=True)  # 名称
+    url = db.Column(db.String(255), unique=True)  # 地址
+    addtime = db.Column(db.DateTime, index=True, default=datetime.utcnow)  # 添加时间
+
+    def __repr__(self):
+        return '<Auth %r>' % self.name
+
+
+# 角色
+class Role(db.Model):
+    __tablename__ = 'role'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), unique=True)  # 名称
+    auths = db.Column(db.String(600))  # 权限列表
+    addtime = db.Column(db.DateTime, index=True, default=datetime.utcnow)  # 添加时间
+
+    def __repr__(self):
+        return '<Role %r>' % self.name
