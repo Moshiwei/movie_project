@@ -79,7 +79,7 @@ class Movie(db.Model):
 
 # 上映预告
 class Preview(db.Model):
-    __tablename__ = 'Preview'
+    __tablename__ = 'preview'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), unique=True)  # 标题
     # url = db.Column(db.String(255), unique=True)  # 地址
