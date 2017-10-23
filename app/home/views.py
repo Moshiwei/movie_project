@@ -42,3 +42,7 @@ def loginlog():
 @home.route('/user/moviecol/')
 def moviecol():
     return render_template('home/moviecol.html')
+
+@home.route('/animation/')
+def animation():
+    return render_template('home/animation.html')
