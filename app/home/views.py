@@ -50,3 +50,7 @@ def animation():
 @home.route('/search/')
 def search():
     return render_template('home/search.html')
+
+@home.route('/play/')
+def play():
+    return render_template('home/play.html')
