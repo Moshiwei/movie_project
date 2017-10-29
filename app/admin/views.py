@@ -73,7 +73,7 @@ def role_list():
 
 
 @admin.route('/preview/list/')
-def preview():
+def preview_list():
     return render_template('admin/preview_list.html')
 
 
