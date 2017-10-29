@@ -35,6 +35,7 @@
                                 <th>管理员角色</th>
                                 <th>添加时间</th>
                             </tr>
+                            {% for v in range(1,6) %}
                             <tr>
                                 <td>1</td>
                                 <td>jinlong</td>
@@ -42,6 +43,8 @@
                                 <td>系统管理员</td>
                                 <td>2017-06-01</td>
                             </tr>
+                            {% endfor %}
+                            {% for v in range(1,6) %}
                             <tr>
                                 <td>2</td>
                                 <td>jianbo</td>
@@ -49,6 +52,7 @@
                                 <td>系统管理员</td>
                                 <td>2017-06-01</td>
                             </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -67,4 +71,10 @@
             </div>
         </div>
     </section>
+    <script>
+        $document.ready(function () {
+            $('#g-11').addClass('active');
+            $('#g-11-2').addClass('active');
+        })
+    </script>
 {% endblock %}
