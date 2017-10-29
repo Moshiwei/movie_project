@@ -1,4 +1,25 @@
 {% extends 'admin/admin.html' %}
+{% block css %}
+    <style>
+        *{
+            font-family:"Microsoft YaHei";
+        }
+        .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+            vertical-align:middle;
+            text-align:center;
+        }
+
+    </style>
+    <style>
+        .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+            vertical-align:middle;
+            text-align:left;
+        }
+        .td_bd{
+            font-weight:bold;
+        }
+    </style>
+{% endblock %}
 {% block content %}
     <section class="content-header">
         <h1>微电影管理系统</h1>

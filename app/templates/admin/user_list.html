@@ -38,6 +38,7 @@
                                 <th>注册时间</th>
                                 <th>操作事项</th>
                             </tr>
+                            {% for v in range(1,11) %}
                             <tr>
                                 <td>1</td>
                                 <td>拓荒者</td>
@@ -49,7 +50,7 @@
                                 <td>正常/冻结</td>
                                 <td>2017-06-01 12:00:00</td>
                                 <td>
-                                    <a class="label label-success" href="user_view.html">查看</a>
+                                    <a class="label label-success" href="{{ url_for('admin.user_view') }}">查看</a>
                                     &nbsp;
                                     <a class="label label-info">解冻</a>
                                     &nbsp;
@@ -58,6 +59,7 @@
                                     <a class="label label-danger">删除</a>
                                 </td>
                             </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -76,4 +78,10 @@
             </div>
         </div>
     </section>
+      <script>
+        $document.ready(function () {
+            $('#g-5').addClass('active');
+            $('#g-5-1').addClass('active');
+        })
+    </script>
 {% endblock %}
