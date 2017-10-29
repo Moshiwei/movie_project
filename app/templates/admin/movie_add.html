@@ -79,4 +79,52 @@
             </div>
         </div>
     </section>
+    </section>
+    <script src="../static/jwplayer/jwplayer.js"></script>
+    <script type="text/javascript">
+        jwplayer.key = "P9VTqT/X6TSP4gi/hy1wy23BivBhjdzVjMeOaQ==";
+
+    </script>
+    <script type="text/javascript">
+        jwplayer("moviecontainer").setup({
+            flashplayer: "../static/jwplayer/jwplayer.flash.swf",
+            playlist: [{
+                file: "../static/video/htpy.mp4",
+                title: "环太平洋"
+            }],
+            modes: [{
+                type: "html5"
+            }, {
+                type: "flash",
+                src: "../static/jwplayer/jwplayer.flash.swf"
+            }, {
+                type: "download"
+            }],
+            skin: {
+                name: "vapor"
+            },
+            "playlist.position": "left",
+            "playlist.size": 200,
+            height: 250,
+            width: 387,
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#input_release_time').datepicker({
+                autoclose: true,
+                format: 'yyyy-mm-dd',
+                language: 'zh-CN',
+            });
+        });
+
+    </script>
+
+    <script>
+        $document.ready(function () {
+            $('#g-3').addClass('active');
+            $('#g-3-1').addClass('active');
+        })
+    </script>
 {% endblock %}
