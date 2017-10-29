@@ -1,4 +1,12 @@
 {% extends 'admin/admin.html' %}
+{% block css %}
+    <style>
+        #auth_list .col-md-12,#auth_list .col-md-2{
+            padding:0px;
+        }
+    </style>
+{% endblock %}
+{% endblock %}
 {% block content %}
     <section class="content-header">
         <h1>微电影管理系统</h1>
@@ -39,4 +47,10 @@
             </div>
         </div>
     </section>
+    <script>
+        $document.ready(function () {
+            $('#g-10').addClass('active');
+            $('#g-10-1').addClass('active');
+        })
+    </script>
 {% endblock %}

@@ -34,6 +34,7 @@
                                 <th>添加时间</th>
                                 <th>操作事项</th>
                             </tr>
+                            {% for v in range(1,11) %}
                             <tr>
                                 <td>1</td>
                                 <td>xxx</td>
@@ -44,6 +45,7 @@
                                     <a class="label label-danger">删除</a>
                                 </td>
                             </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -62,4 +64,10 @@
             </div>
         </div>
     </section>
+    <script>
+        $document.ready(function () {
+            $('#g-10').addClass('active');
+            $('#g-10-2').addClass('active');
+        })
+    </script>
 {% endblock %}
