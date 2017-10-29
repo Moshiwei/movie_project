@@ -35,6 +35,7 @@
                                 <th>操作原因</th>
                                 <th>操作IP</th>
                             </tr>
+                            {% for v in range(1,11) %}
                             <tr>
                                 <td>1</td>
                                 <td>admin</td>
@@ -42,6 +43,7 @@
                                 <td>添加一个标签：科幻</td>
                                 <td>192.168.4.1</td>
                             </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -60,4 +62,10 @@
             </div>
         </div>
     </section>
+        <script>
+        $document.ready(function () {
+            $('#g-8').addClass('active');
+            $('#g-8-1').addClass('active');
+        })
+    </script>
 {% endblock %}
