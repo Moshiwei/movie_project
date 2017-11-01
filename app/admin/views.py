@@ -1,5 +1,6 @@
 from . import admin
 from flask import redirect, render_template, url_for
+from app.admin.forms import LoginForm
 
 
 @admin.route('/')
@@ -9,7 +10,8 @@ def index():
 
 @admin.route('/login/')
 def login():
-    return render_template('admin/login.html')
+    form = LoginForm()
+    return render_template('admin/login.html', form=form)
 
 
 @admin.route('/logout/')
