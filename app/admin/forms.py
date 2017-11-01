@@ -15,7 +15,7 @@ class LoginForm(FlaskForm):
         render_kw={
             "class":"form-control",
             "placeholder":"请输入账号！",
-            "required":"required"
+            # "required":"required"
 
         },
     )
@@ -28,7 +28,7 @@ class LoginForm(FlaskForm):
         render_kw={
             "class":"form-control",
             "placeholder":"请输入密码",
-            "required":"required"
+            # "required":"required"
         },
 
     )

@@ -19,16 +19,24 @@
     </div>
     <div class="login-box-body">
         <p class="login-box-msg"></p>
-        <form action="" method="post" id="form-data">
+        <form method="post" id="form-data">
             <div class="form-group has-feedback">
                 {{ form.account }}
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                <div class="col-md-12" id="input_user"></div>
+                {% for err in form.account.errors %}
+                    <div class="col-md-12" id="input_user">
+                        <font style="color:red">{{ err }}</font>
+                    </div>
+                {% endfor %}
             </div>
             <div class="form-group has-feedback">
                 {{ form.pwd }}
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                <div class="col-md-12" id="input_pwd"></div>
+                {% for err in form.pwd.errors %}
+                    <div class="col-md-12" id="input_pwd">
+                        <font style="color:red">{{ err }}</font>
+                    </div>
+                {% endfor %}
             </div>
             <div class="row">
                 <div class="col-xs-8">

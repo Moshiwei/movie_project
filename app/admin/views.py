@@ -8,9 +8,11 @@ def index():
     return render_template('admin/index.html')
 
 
-@admin.route('/login/')
+@admin.route('/login/', methods=["GET","POST"])
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        data = form.data
     return render_template('admin/login.html', form=form)
 
 
