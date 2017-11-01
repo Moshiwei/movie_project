@@ -1,13 +1,6 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from app import db
 import datetime
-
-app = Flask(__name__)
-# mysql://用户名：密码@ip地址：端口号/数据库名称
-app.config['SQLACHEMY_DATABASE_URL'] = 'mysql://root:0123456@127.0.0.1:3306/movie'
-app.config['SQLACHEMY_TRACK_MODIFICATIONS'] = True
-
-db = SQLAlchemy(app)
 
 
 # 会员
