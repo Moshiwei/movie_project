@@ -1,6 +1,6 @@
 from flask import Flask
 from app import db
-import datetime
+from datetime import datetime
 
 
 # 会员
@@ -130,3 +130,23 @@ class Role(db.Model):
 
     def __repr__(self):
         return '<Role %r>' % self.name
+
+class Admin(db.Model):
+    __tabname__ = 'admin'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), unique=True)  # 名称
+    pwd = db.Column(db.String(100))
+    is_super = db.Column(db.SmallInteger)
+    role_id = db.Column(db.Integer, db.ForeignKey('role.id')) #所属角色
+    addtime = db.Column(db.DateTime, index=True, default=datetime.utcnow)  # 添加时间
+    adminlogs = db.relationship("Adminlog", backref='admin')
+    oplogs = db.relationship("Oplog", backref='admin')
+
+    def  __repr__(self):
+        return '<Admin %r>' % self.name
+
+    def check_pwd(self, pwd):
+        from werkzeug.security import check_password_hash
+        return check_password_hash(self.pwd, pwd)
+
+
