@@ -149,4 +149,28 @@ class Admin(db.Model):
         from werkzeug.security import check_password_hash
         return check_password_hash(self.pwd, pwd)
 
+# 管理员登录日志
+class Adiminlog(db.Model):
+    __tablename__ = 'adminlog'
+    id = db.Column(db.Integer, primary_key=True)
+    admin_id = db.Column(db.Integer, db.ForeignKey('admin.id')) # 所属管理员
+    ip = db.Column(db.String(100)) # 登录ip
+    addtime = db.Column(db.DateTime, index=True, default=datetime.utcnow)  # 添加时间
+
+    def __repr__(self):
+        return '<Adminlog %r>' % self.id
+
+# 操作日志
+class Oplog(db.Model):
+    __tablename__ = "oplog"
+    id = db.Column(db.Integer, primary_key=True)  # 编号
+    admin_id = db.Column(db.Integer, db.ForeignKey('admin.id'))  # 所属管理员
+    ip = db.Column(db.String(100))  # 操作IP
+    reason = db.Column(db.String(600))  # 操作原因
+    addtime = db.Column(db.DateTime, index=True, default=datetime.now)  # 登录时间
+
+    def __repr__(self):
+        return "<Oplog %r>" % self.id
+
+
 
